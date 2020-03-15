@@ -22,9 +22,6 @@ class MoviesForm extends React.Component {
   }
   submitForm(e) {
     e.preventDefault();
-  }
-
-  render() {
     const config = {
       method: "POST",
       headers: {
@@ -37,7 +34,7 @@ class MoviesForm extends React.Component {
       .then(res => res.json())
       .then(res => {
         if (res.error) {
-          console.log(res.error);
+          alert(res.error);
         } else {
           alert(`Movie #${res} has been successfully added!`);
         }
@@ -46,6 +43,9 @@ class MoviesForm extends React.Component {
         console.error(e);
         alert("There was an error when adding the movie.");
       });
+  }
+
+  render() {
     return (
       <div className="Movies">
         <h1>Movies</h1>
